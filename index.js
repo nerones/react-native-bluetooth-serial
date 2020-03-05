@@ -7,9 +7,10 @@ const BluetoothSerial = NativeModules.BluetoothSerial
  * Listen for available events
  * @param  {String} eventName Name of event one of connectionSuccess, connectionLost, data, rawData
  * @param  {Function} handler Event handler
+ * @return {Subscription} check https://github.com/facebook/react-native/issues/24013#issuecomment-474057305
  */
 BluetoothSerial.on = (eventName, handler) => {
-  DeviceEventEmitter.addListener(eventName, handler)
+  return DeviceEventEmitter.addListener(eventName, handler)
 }
 
 /**
